@@ -1,0 +1,24 @@
+﻿<h1>Territorios disponibles</h1>
+<!--
+<ul>
+  <li ng-repeat="territorio in territorios">
+    <a href="#/{{territorio.idterritorio}}">{{territorio.nombreterri}}</a>
+  </li>
+ <ul>
+ -->
+Filtrar por:<input ng-model="query" type="text"/>
+<table>
+<tr>
+<!--Al hacer clic en los encabezados de la tabla, cambia el campo y el criterio de ordenación, A-Z y Z-A-->
+<th><a href="" ng-click="sortField ='nombreterri'; reverse = !reverse">Nombre del territorio</a></th>
+<th><a href="" ng-click="sortField = 'tipo'; reverse = !reverse">Tipo</a></th>
+<th>Detalle</th>
+</tr>
+<!--Esto actúa como un bucle, generando una fila en la tabla para cada entidad del JSON-->
+<tr ng-repeat="territorio in territorios  | filter:query| orderBy:sortField:reverse">
+<td>{{territorio.nombreterri}}</td>
+<td>{{territorio.tipo}}</td>
+<td><a href="#/{{territorio.idterritorio}}">Detalle</a></td>
+</tr>
+</table>
+ 
